@@ -37,7 +37,7 @@ requirements:
     - r-htmltools
     - r-knitr
     - r-magrittr
-    - r-officer
+    - r-officer >=0.6.9
     - r-tidyselect
     - r-zoo
   run:
@@ -47,7 +47,7 @@ requirements:
     - r-htmltools
     - r-knitr
     - r-magrittr
-    - r-officer
+    - r-officer >=0.6.9
     - r-tidyselect
     - r-zoo
   run_constrained:
