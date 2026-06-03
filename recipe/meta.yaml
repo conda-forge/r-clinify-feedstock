@@ -1,4 +1,4 @@
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/clinify_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/clinify/clinify_{{ version }}.tar.gz
-  sha256: 9e5163dedd59bbe2e79c4b9d4f5683e314cc5b73315809d7dc9280ab567576bb
+  sha256: 1dec0c488599bcbb1d7995c9b83f58f6f0a92cd8e5aa9913e7a040eb5c549d2d
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -26,10 +26,6 @@ requirements:
   build:
     - {{ posix }}zip               # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
-    # The libstdc++.dll provided in libstdcxx v15.1.0 build h904f734_2
-    # is missing `_ZSt21ios_base_library_initv`.
-    # see: conda-forge/ctng-compilers-feedstock#174
-    - libstdcxx !=14.3.0,!=15.1.0  # [win]
   host:
     - r-base
     - r-dplyr
@@ -37,7 +33,7 @@ requirements:
     - r-htmltools
     - r-knitr
     - r-magrittr
-    - r-officer >=0.6.9
+    - r-officer >=0.7.2
     - r-tidyselect
     - r-zoo
   run:
@@ -47,11 +43,9 @@ requirements:
     - r-htmltools
     - r-knitr
     - r-magrittr
-    - r-officer >=0.6.9
+    - r-officer >=0.7.2
     - r-tidyselect
     - r-zoo
-  run_constrained:
-    - libstdcxx !=14.3.0,!=15.1.0           # [win]
 
 test:
   commands:
@@ -61,8 +55,8 @@ test:
 about:
   home: https://atorus-research.github.io/clinify/
   license: Apache-2.0
-  summary: The primary motivation of this package is to take the things that are great about the R packages 'flextable' <https://davidgohel.github.io/flextable/> and 'officer' <https://davidgohel.github.io/officer/>, take the standard and complex pieces of formatting clinical tables for regulatory use, and simplify the tedious
-    pieces.
+  summary: The primary motivation of this package is to take the things that are great about the R packages 'flextable' <https://davidgohel.github.io/flextable/> and 'officer' <https://davidgohel.github.io/officer/>, take the standard and complex pieces of formatting clinical tables for regulatory use, and simplify the
+    tedious pieces.
   license_family: APACHE
   license_file:
     - LICENSE-2.0.txt
