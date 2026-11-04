@@ -1,4 +1,4 @@
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/clinify_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/clinify/clinify_{{ version }}.tar.gz
-  sha256: 0077147211ac59fcef35f98e2594c90b19b61f4807a066fc28c3e5c4490a1e17
+  sha256: 1b167e00628c1af083e5019342e18c3c96a1423a6118ccba82d7d6e71da9a0e2
 
 build:
   number: 0
